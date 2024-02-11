@@ -1,0 +1,55 @@
+{
+  "groups": [
+    {
+      "name": "mitforum",
+      "type": "com.mitforum.ws.configuration.MitForumProperties",
+      "sourceType": "com.mitforum.ws.configuration.MitForumProperties"
+    },
+    {
+      "name": "mitforum.client",
+      "type": "com.mitforum.ws.configuration.MitForumProperties$Client",
+      "sourceType": "com.mitforum.ws.configuration.MitForumProperties",
+      "sourceMethod": "public com.mitforum.ws.configuration.MitForumProperties.Client getClient() "
+    },
+    {
+      "name": "mitforum.email",
+      "type": "com.mitforum.ws.configuration.MitForumProperties$Email",
+      "sourceType": "com.mitforum.ws.configuration.MitForumProperties",
+      "sourceMethod": "public com.mitforum.ws.configuration.MitForumProperties.Email getEmail() "
+    }
+  ],
+  "properties": [
+    {
+      "name": "mitforum.client.host",
+      "type": "java.lang.String",
+      "sourceType": "com.mitforum.ws.configuration.MitForumProperties$Client"
+    },
+    {
+      "name": "mitforum.email.from",
+      "type": "java.lang.String",
+      "sourceType": "com.mitforum.ws.configuration.MitForumProperties$Email"
+    },
+    {
+      "name": "mitforum.email.host",
+      "type": "java.lang.String",
+      "sourceType": "com.mitforum.ws.configuration.MitForumProperties$Email"
+    },
+    {
+      "name": "mitforum.email.password",
+      "type": "java.lang.String",
+      "sourceType": "com.mitforum.ws.configuration.MitForumProperties$Email"
+    },
+    {
+      "name": "mitforum.email.port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.mitforum.ws.configuration.MitForumProperties$Email",
+      "defaultValue": 0
+    },
+    {
+      "name": "mitforum.email.username",
+      "type": "java.lang.String",
+      "sourceType": "com.mitforum.ws.configuration.MitForumProperties$Email"
+    }
+  ],
+  "hints": []
+}
