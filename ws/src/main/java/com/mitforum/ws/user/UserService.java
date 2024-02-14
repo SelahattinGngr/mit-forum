@@ -1,18 +1,22 @@
 package com.mitforum.ws.user;
 
-import com.mitforum.ws.email.EmailService;
-import com.mitforum.ws.user.exception.ActivationNotificationException;
-import com.mitforum.ws.user.exception.InvalidTokenException;
-import com.mitforum.ws.user.exception.NotUniqueEmailException;
-import jakarta.transaction.Transactional;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.mail.MailException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
+import com.mitforum.ws.email.EmailService;
+import com.mitforum.ws.user.exception.ActivationNotificationException;
+import com.mitforum.ws.user.exception.InvalidTokenException;
+import com.mitforum.ws.user.exception.NotUniqueEmailException;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class UserService {
@@ -46,5 +50,9 @@ public class UserService {
 		inDB.setActive(true);
 		inDB.setActivationToken(null);
 		userRepository.save(inDB);
+	}
+
+	public Page<User> getUsers(Pageable page) {
+		return userRepository.findAll(page);
 	}
 }

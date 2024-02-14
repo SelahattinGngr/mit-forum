@@ -1,5 +1,24 @@
 package com.mitforum.ws.user;
 
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.mitforum.ws.error.ApiError;
 import com.mitforum.ws.shared.GenericMessage;
 import com.mitforum.ws.shared.Messages;
@@ -7,16 +26,8 @@ import com.mitforum.ws.user.dto.UserCreate;
 import com.mitforum.ws.user.exception.ActivationNotificationException;
 import com.mitforum.ws.user.exception.InvalidTokenException;
 import com.mitforum.ws.user.exception.NotUniqueEmailException;
-import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.i18n.LocaleContextHolder;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.*;
 
-import java.util.stream.Collectors;
+import jakarta.validation.Valid;
 
 @RestController
 public class UserController {
@@ -36,6 +47,11 @@ public class UserController {
 		userService.activateUser(token);
 		String message = Messages.getMessageForLocale("mitforum.activate.user.success.message", LocaleContextHolder.getLocale());
 		return new GenericMessage(message);
+	}
+
+	@GetMapping("/api/v1/users")
+	Page<User> getUsers(Pageable page) {
+		return userService.getUsers(page);
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)

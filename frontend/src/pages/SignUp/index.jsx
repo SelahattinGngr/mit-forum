@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Alert } from "@/shared/components/Alert";
 import { signUp } from "./api";
 import { Input } from "./components/input";
-import { useTranslation } from "react-i18next";
 
 export function SignUp() {
   const [username, setUsername] = useState();
@@ -108,12 +109,8 @@ export function SignUp() {
               onChange={(event) => setPasswordRepeat(event.target.value)}
               type="password"
             />
-            {successMessage && (
-              <div className="alert alert-success">{successMessage}</div>
-            )}
-            {generalError && (
-              <div className="alert alert-danger">{generalError}</div>
-            )}
+            {successMessage && <Alert>{successMessage}</Alert>}
+            {generalError && <Alert styleType="danger">{generalError}</Alert>}
             <div className="d-grid gap-2">
               <button
                 type="button"
