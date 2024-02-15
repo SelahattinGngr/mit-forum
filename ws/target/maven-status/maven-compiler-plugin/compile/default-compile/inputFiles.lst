@@ -7,10 +7,12 @@ C:\Users\selah\Desktop\code\mit-forum\ws\src\main\java\com\mitforum\ws\user\User
 C:\Users\selah\Desktop\code\mit-forum\ws\src\main\java\com\mitforum\ws\shared\GenericMessage.java
 C:\Users\selah\Desktop\code\mit-forum\ws\src\main\java\com\mitforum\ws\user\exception\InvalidTokenException.java
 C:\Users\selah\Desktop\code\mit-forum\ws\src\main\java\com\mitforum\ws\user\exception\NotUniqueEmailException.java
+C:\Users\selah\Desktop\code\mit-forum\ws\src\main\java\com\mitforum\ws\user\dto\UserDTO.java
 C:\Users\selah\Desktop\code\mit-forum\ws\src\main\java\com\mitforum\ws\user\validation\UniqueEmailValidator.java
 C:\Users\selah\Desktop\code\mit-forum\ws\src\main\java\com\mitforum\ws\WsApplication.java
 C:\Users\selah\Desktop\code\mit-forum\ws\src\main\java\com\mitforum\ws\user\UserController.java
 C:\Users\selah\Desktop\code\mit-forum\ws\src\main\java\com\mitforum\ws\configuration\MitForumProperties.java
 C:\Users\selah\Desktop\code\mit-forum\ws\src\main\java\com\mitforum\ws\user\UserRepository.java
 C:\Users\selah\Desktop\code\mit-forum\ws\src\main\java\com\mitforum\ws\error\ApiError.java
+C:\Users\selah\Desktop\code\mit-forum\ws\src\main\java\com\mitforum\ws\user\dto\UserProjection.java
 C:\Users\selah\Desktop\code\mit-forum\ws\src\main\java\com\mitforum\ws\shared\Messages.java

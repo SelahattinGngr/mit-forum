@@ -23,6 +23,7 @@ import com.mitforum.ws.error.ApiError;
 import com.mitforum.ws.shared.GenericMessage;
 import com.mitforum.ws.shared.Messages;
 import com.mitforum.ws.user.dto.UserCreate;
+import com.mitforum.ws.user.dto.UserDTO;
 import com.mitforum.ws.user.exception.ActivationNotificationException;
 import com.mitforum.ws.user.exception.InvalidTokenException;
 import com.mitforum.ws.user.exception.NotUniqueEmailException;
@@ -50,8 +51,8 @@ public class UserController {
 	}
 
 	@GetMapping("/api/v1/users")
-	Page<User> getUsers(Pageable page) {
-		return userService.getUsers(page);
+	Page<UserDTO> getUsers(Pageable page) {
+		return userService.getUsers(page).map(UserDTO::new);
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)

@@ -1,5 +1,7 @@
 package com.mitforum.ws.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -18,11 +20,20 @@ public class User {
 
 	private String  email;
 
+	@JsonIgnore // gorunmesini istemedigimiz alanlar icin
 	private String  password;
 
+	@JsonIgnore
 	boolean active = false;
 
+	@JsonIgnore
 	String activationToken;
+
+	String image;
+
+	public String getImage() { return image; }
+
+	public void setImage(String image) { this.image = image; }
 
 	public String getActivationToken() { return activationToken; }
 
